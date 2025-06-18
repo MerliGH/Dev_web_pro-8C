@@ -1,0 +1,13 @@
+{% extends "base/base.html" %}
+
+{% block title %}UPDATE BANK VIEW{% endblock title %}
+
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn btn-primary form-control">UPDATE BANK</button>
+            <a href="{% url 'core:list_banks' %}" class="btn btn-warning form-control">Cancel</a>
+    </form>
+{% endblock content %}

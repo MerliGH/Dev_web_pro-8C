@@ -1,0 +1,11 @@
+{% extends "base/base.html" %}
+
+{% block title %}DETAIL BANK VIEW{% endblock title %}
+
+
+{% block content %}
+
+    {{ bank }}
+
+    <a href="{% url 'core:list_banks' %}" class="btn btn-warning">Return</a>
+{% endblock content %}

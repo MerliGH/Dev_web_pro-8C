@@ -1,0 +1,43 @@
+{% extends "base/base.html" %}
+
+{% block title %}INDEX VIEW{% endblock title %}
+
+{% block content %}
+    {% if request.user.is_authenticated %}
+        <h1> Bienvenido user: {{ request.user.username }}</h1>
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th></th>
+            <th>ACTIONS</th>
+            <th></th>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.first_name }}</td>
+                    <td>{{ user.last_name }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td><a href="" class="btn btn-info">Detail</a></td>
+                    <td><a href="" class="btn btn-warning">Update</a></td>
+                    <td><a href="" class="btn btn-danger">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <form action="" method="post">
+            {% csrf_token %}
+                {{ loginForm }}
+                <button type="submit" class="btn btn-success">LogIn</button>
+        </form>
+    {% endif %}
+    
+
+{% endblock content %}

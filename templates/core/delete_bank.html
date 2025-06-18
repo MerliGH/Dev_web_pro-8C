@@ -1,0 +1,13 @@
+{% extends "base/base.html" %}
+
+{% block title %}DELETE BANK VIEW{% endblock title %}
+
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+            {{ object }}
+            <button type="submit" class="btn btn-danger form-control">DELETE BANK</button>
+            <a href="{% url 'core:list_banks' %}" class="btn btn-warning form-control">Cancel</a>
+    </form>
+{% endblock content %}

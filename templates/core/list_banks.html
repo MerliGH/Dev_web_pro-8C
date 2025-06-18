@@ -1,0 +1,33 @@
+{% extends "base/base.html" %}
+
+
+{% block title %}LIST BANKS VIEW{% endblock title %}
+
+
+{% block content %}
+    <a href="{% url 'core:create_bank' %}" class="btn btn-outline-success form-control">CREATE A NEW BANK</a>
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>ADDRESS</th>
+            <th>STATUS</th>
+            <th></th>
+            <th>ACTIONS</th>
+            <th></th>
+        </thead>
+        <tbody>
+            {% for bank in banks %}
+                <tr>
+                    <td>{{ bank.id }}</td>
+                    <td>{{ bank.bank_name }}</td>
+                    <td>{{ bank.address }}</td>
+                    <td>{{ bank.status }}</td>
+                    <td><a href="{% url 'core:detail_bank' bank.id %}" class="btn btn-info">Detail</a></td>
+                    <td><a href="{% url 'core:update_bank' bank.id %}" class="btn btn-warning">Update</a></td>
+                    <td><a href="{% url 'core:delete_bank' bank.id %}" class="btn btn-danger">Delete</a></td>
+                </tr>
+            {% endfor %} 
+        </tbody>
+    </table>
+{% endblock content %}
